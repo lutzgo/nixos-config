@@ -65,48 +65,8 @@
       formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
 
       nixosConfigurations = {
-        tentacle = lib.nixosSystem { # Server Added 2023-10-25 
-          modules = [ ./hosts/tentacle ];
-          specialArgs = { inherit inputs outputs; };
-        };
-
-        beef = lib.nixosSystem { # Workstation
-          modules = [ ./hosts/beef ];
-          specialArgs = { inherit inputs outputs; };
-        };
-
-        beer = lib.nixosSystem { # Bar
-          modules = [ ./hosts/beer ];
-          specialArgs = {
-            inherit inputs outputs;
-            kioskUsername = "dave";
-            kioskURL = "https://beer.tiredofit.ca";
-          };
-        };
-
-        butcher = lib.nixosSystem { # Local Server
-          modules = [ ./hosts/butcher ];
-          specialArgs = { inherit inputs outputs; };
-        };
-
-        disko = lib.nixosSystem { # Disko
-          modules = [ ./hosts/disko ];
-          specialArgs = { inherit inputs outputs; };
-          system = "x86_64-linux";
-        };
-
-        nakulaptop = lib.nixosSystem { # Laptop
-          modules = [ ./hosts/nakulaptop ];
-          specialArgs = { inherit inputs outputs; };
-        };
-
-        selecta = lib.nixosSystem { # Production Station
-          modules = [ ./hosts/selecta ];
-          specialArgs = { inherit inputs outputs; };
-        };
-
-        soy = lib.nixosSystem { # VM
-          modules = [ ./hosts/soy ];
+        flores = lib.nixosSystem { # Laptop Added 2023-12-27 
+          modules = [ ./hosts/flores ];
           specialArgs = { inherit inputs outputs; };
         };
       };

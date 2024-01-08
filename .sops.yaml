@@ -1,74 +1,33 @@
 keys:
-  - &host_beef age1wq5xj5mwv9xk4tp26cxc4xqjq9xd9hwqv0zeemawl2cc8sarmqesw366dh
-  - &host_butcher age1nleq0q2kzh2zn4pyr0dcy0zjnsr6sx8c5ttjahhfttkltsr2s3ksahhpkx
-  - &host_disko age16remqlrkz2s9yurru0sk3vxscs2t9l745el3asapatmpl0fh4f8sk98xj0
-  - &host_nakulaptop age1m6gzjlvx5paan69evccl6kywj0ghdk46prumx4jn4hxcrxd4re6qckdl9w
-  - &host_selecta age148dmxhvqa2mrc43qhvu4qs963e4vcwdqr5kt0glrymh0sv62xp0qhgj0re
-  - &host_soy age1wq5xj5mwv9xk4tp26cxc4xqjq9xd9hwqv0zeemawl2cc8sarmqesw366dh
-  - &host_tentacle age190tmygg8xmn9tkj4yjgemvdd8s4tnmycr9n4qfrr0l97zxfq3gjs36xsn8
-  - &user_dave age1upzm9um3qljxlmxcg8vl35d7eyeqtnsfcnqlh3wtnj46dhfzwyrqa80avw
-  - &user_ireen age1477n5xa2cr4tgdy80vxg24tsdcrcmzarn4ad99tjvrsjedq6sqpqsxyrms
-  - &user_media age1zsws94zmm5axrtpswg2pwcfcn04zuwxtm8gm3z75frwvqtquz9rqgugv7f
+  - &host_flores age1c9pehf9923ujjv4py0vrz0azgz6e9weucw754wmk6xnel5mr4dzqvfv32z
+  - &host_papua_0 age1waqyjjtrld7cyyndmvk9aduh97dd5c979fzgtr0edhq7a5l93u4staxuqk
+  - &user_dave age1wlg4ft6vdy57w5xysgr05xdrkw4c42j8gzv5tglswldes5g3js3q4chq2j
+  - &user_ireen age1pz0ukt9fr4mujcsapxkzeyajfaw78p95qntk28u4nsdefza98a7ss06hv4
+  - &user_root age1vm8qg9zqqc50km9e7mja2ys2sghl76pxseu64qrly0t3uu060g8sj43r46
+  - &user_bootstrap age1aze8me5qy3v56pc2a3dan682zlssesh9tau3scjt4wf3sajjf9gsj0dnzs
 creation_rules:
   - path_regex: hosts/common/secrets/.*
     key_groups:
       - age:
-          - *host_beef
-          - *host_butcher
-          - *host_disko
-          - *host_nakulaptop
-          - *host_selecta
-          - *host_soy
+          - *host_flores
           - *user_dave
           - *user_ireen
-          - *user_media
-          - *host_tentacle
+          - *user_root
+          - *user_bootstrap
+          - *host_papua_0
   - path_regex: users/secrets.yaml
     key_groups:
       - age:
-          - *host_beef
-          - *host_butcher
-          - *host_disko
-          - *host_nakulaptop
-          - *host_selecta
-          - *host_soy
+          - *host_flores
           - *user_dave
-          - *host_tentacle
-  - path_regex: hosts/beef/secrets/.*
+          - *user_root
+          - *user_bootstrap
+          - *host_papua_0
+  - path_regex: hosts/flores/secrets/.*
     key_groups:
       - age:
-          - *host_beef
-          - *user_dave
-  - path_regex: hosts/butcher/secrets/.*
-    key_groups:
-      - age:
-          - *host_butcher
-          - *user_dave
-  - path_regex: hosts/disko/secrets/.*
-    key_groups:
-      - age:
-          - *host_disko
-          - *user_dave
-  - path_regex: hosts/nakulaptop/secrets/.*
-    key_groups:
-      - age:
-          - *host_nakulaptop
-          - *user_dave
+          - *host_flores
           - *user_ireen
-  - path_regex: hosts/selecta/secrets/.*
-    key_groups:
-      - age:
-          - *host_selecta
-          - *user_dave
-          - *user_media
-  - path_regex: hosts/soy/secrets/.*
-    key_groups:
-      - age:
-          - *host_soy
-          - *user_dave
-  - path_regex: hosts/tentacle/secrets/.*
-    key_groups:
-      - age:
-          - *host_tentacle
-          - *host_beef
-          - *user_dave
+          - *user_root
+          - *user_bootstrap
+          - *host_papua_0

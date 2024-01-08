@@ -35,7 +35,8 @@ in
     ];
 
     sops = {
-      age.sshKeyPaths = map getKeyPath keys;
+      age.sshKeyPaths = [ "/persist/etc/ssh/ssh_host_ed25519_key" ];
+      #age.sshKeyPaths = map getKeyPath keys;
       secrets = {
         ${hostName} = {
           sopsFile = hostsecrets;

@@ -22,7 +22,7 @@ in
       yubikey-personalization
       yubikey-personalization-gui
       yubico-piv-tool
-      yubioath-flutter
+#      yubioath-flutter
     ];
 
     hardware.gpgSmartcards.enable = true;

@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
   device = config.host.hardware ;
@@ -7,6 +7,11 @@ in {
 
     boot.initrd.kernelModules = ["i915"];
     services.xserver.videoDrivers = ["modesetting"];
+
+    boot.extraModprobeConfig = ''
+      blacklist nouveau
+      options nouveau modeset=0
+    '';    
 
     nixpkgs.config.packageOverrides = pkgs: {
       vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};

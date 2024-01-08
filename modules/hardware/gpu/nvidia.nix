@@ -82,7 +82,16 @@ boot = {
       nvidia = {
         package = mkDefault nvidiaPackage;
         modesetting.enable = mkDefault true;
-        prime.offload.enableOffloadCmd = device.gpu == "hybrid-nvidia";
+        prime.offload = {
+          enable = device.gpu == "hybrid-nvidia";
+          enableOffloadCmd = device.gpu == "hybrid-nvidia";
+
+          # Bus ID Intel GPU; lspci | grep Intel
+          #intelBusId = "PCI:0:2:0";
+
+          # Bus ID NVIDIA GPU; lspci | grep NVIDIA
+          #nvidiaBusId = "PCI:1:0:0";
+        };
         powerManagement = {
           enable = mkDefault true;
           finegrained = device.gpu == "hybrid-nvidia";

@@ -1293,7 +1293,7 @@ task_copy_ssh_key() {
     if [ -n "${SSH_PRIVATE_KEY}" ]; then
         task_copy_ssh_key_ssh_private_key="-i ${SSH_PRIVATE_KEY}"
     fi
-    ssh-copy-id -p ${SSH_PORT} ${task_copy_ssh_key_ssh_private_key} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_IP}
+    ssh-copy-id -p ${SSH_PORT} ${task_copy_ssh_key_ssh_private_key} -o PubkeyAuthentication=no -o PreferredAuthentications=password -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_IP}
     wait_for_keypress
 }
 
@@ -1763,7 +1763,7 @@ task_install_host() {
     ## We use sudo here as we're generating secrets and setting them as root and when nixosanywhere rsyncs them over it can't read them..
     ## Potential PR to the nixos project to execute a "pre-hook" bash script before the installation process actually occurs.
     if var_true "${INSTALL_DEBUG}" ; then set -x ; fi
-    sudo nix run github:numtide/nixos-anywhere -- \
+    sudo -i nix run github:numtide/nixos-anywhere -- \
                                                 --ssh-port ${SSH_PORT} ${feature_build_remote} ${feature_debug} ${feature_reboot} ${feature_ssh_key} \
                                                 ${feature_luks} --extra-files "${_dir_remote_rootfs}" \
                                                 --flake "${_dir_flake}"/#${deploy_host} \
@@ -1926,20 +1926,20 @@ task_secret_rekey() {
     case "${1}" in
         all )
             print_debug "[secret_rekey] Rekeying ALL"
-            rekey "${_dir_flake}"/hosts/*/secrets/
-            rekey "${_dir_flake}"/users/
+            rekey "${_dir_flake}"/hosts/*/secrets/secrets.yaml
+            rekey "${_dir_flake}"/users/secrets.yaml
         ;;
         common )
             print_debug "[secret_rekey] Rekeying Common"
-            rekey "${_dir_flake}"/hosts/common/secrets/
+            rekey "${_dir_flake}"/hosts/common/secrets/secrets.yaml
         ;;
         users )
             print_debug "[secret_rekey] Rekeying Users - users/secrets.yaml"
-            rekey "${_dir_flake}"/users/
+            rekey "${_dir_flake}"/users/secrets.yaml
         ;;
         * )
             print_debug "[secret_rekey] Rekeying Wildcard ${1}"
-            rekey "${_dir_flake}"/hosts/${1}/secrets/
+            rekey "${_dir_flake}"/hosts/${1}/secrets/secrets.yaml
         ;;
     esac
     if var_nottrue "${secret_rekey_silent}"; then wait_for_keypress; fi

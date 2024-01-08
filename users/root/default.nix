@@ -16,6 +16,9 @@
       shell = pkgs.bashInteractive;
       hashedPasswordFile = mkDefault config.sops.secrets.root-password.path;
       packages = [ pkgs.home-manager ];
+
+    #openssh.authorizedKeys.keys = [ (builtins.readFile ./ssh.pub) ];
+
     };
 
     sops.secrets.root-password = {
