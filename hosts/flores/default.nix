@@ -37,6 +37,7 @@
     user = {
       root.enable = true;
       ireen.enable = true;
+      sgo.enable = true;
     };
   };
 }
