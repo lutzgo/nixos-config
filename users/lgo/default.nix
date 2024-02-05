@@ -18,7 +18,7 @@ in
     users.users.lgo = {
       isNormalUser = true;
       shell = pkgs.bashInteractive;
-      uid = 2324;
+      uid = 2323;
       group = "users" ;
       extraGroups = [
         "wheel"

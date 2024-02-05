@@ -18,7 +18,7 @@ in
     users.users.dave = {
       isNormalUser = true;
       shell = pkgs.bashInteractive;
-      uid = 2323;
+      uid = 2324;
       group = "users" ;
       extraGroups = [
         "wheel"

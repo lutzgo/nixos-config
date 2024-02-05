@@ -18,7 +18,7 @@ in
     users.users.ireen = {
       isNormalUser = true;
       shell = pkgs.bashInteractive;
-      uid = 4242;
+      uid = 4243;
       group = "users" ;
       extraGroups = [
         "wheel"
