@@ -3,8 +3,7 @@
 with lib;
 {
   imports = [
-    ./dave
-    ./ireen
+    #./dave
     ./lgo
     ./media
     ./root

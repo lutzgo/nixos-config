@@ -36,7 +36,7 @@
     role = "laptop";
     user = {
       root.enable = true;
-      ireen.enable = true;
+      lgo.enable = true;
       sgo.enable = true;
     };
   };
