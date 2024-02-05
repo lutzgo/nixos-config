@@ -1,5 +1,5 @@
 {
-  description = "Tired of I.T! NixOS Configuration";
+  description = "LGo's NixOS Configuration";
 
   nixConfig = {
     experimental-features = [ "nix-command" "flakes" ];
