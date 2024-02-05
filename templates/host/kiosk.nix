@@ -23,7 +23,7 @@
     };
     role = "kiosk";
     user = {
-      dave.enable = true;
+      lgo.enable = true;
       root.enable = true;
     };
   };

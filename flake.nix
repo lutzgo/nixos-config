@@ -32,6 +32,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+		niri = {
+			url = "github:YaLTeR/niri";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
     impermanence.url = "github:nix-community/impermanence";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";

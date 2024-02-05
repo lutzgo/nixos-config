@@ -7,8 +7,8 @@ INSTALL_DEBUG=${INSTALL_DEBUG:-"FALSE"}
 INSTALL_REBOOT=${INSTALL_REBOOT:-"FALSE"}
 LOG_LEVEL=NOTICE
 REMOTE_USER=${REMOTE_USER:-"$(whoami)"}
-SECRET_USER="dave"
-SECRET_HOST="beef"
+SECRET_USER="lgo"
+SECRET_HOST="papua"
 SSH_PORT=${SSH_PORT:-"22"}
 
 if [ -f ".deploy.env" ] ; then source .deploy.env ; fi

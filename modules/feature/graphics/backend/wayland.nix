@@ -48,7 +48,7 @@ in {
       });
 
       greetd = (lib.mkIf (config.host.role != "kiosk") {
-        enable = true;
+        enable = false;
         settings = {
           default_session = {
             command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time";
